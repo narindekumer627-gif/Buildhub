@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>BuildHub Independence Day Quiz 2026</title>
+<style>
+:root{
+  --navy:#071d3a;--navy2:#0c2d57;--saffron:#ff7a00;--green:#159447;
+  --white:#fff;--muted:#64748b;--bg:#f5f8fc;--red:#dc2626;--gold:#f5b700;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:#10213b}
+body{background:
+ radial-gradient(circle at 10% 0%,rgba(255,122,0,.13),transparent 28%),
+ radial-gradient(circle at 90% 10%,rgba(21,148,71,.13),transparent 28%),var(--bg)}
+button{font:inherit}
+.hidden{display:none!important}
+.app{max-width:1100px;margin:auto;padding:18px}
+.header{background:linear-gradient(110deg,var(--navy),#0b376a);color:#fff;border-radius:22px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:15px;box-shadow:0 12px 30px #071d3a22}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:50px;height:50px;border-radius:14px;background:#fff;color:var(--navy);display:grid;place-items:center;font-size:25px;font-weight:900}
+.brand b{font-size:25px}.brand small{display:block;opacity:.8}
+.tricolor{height:7px;display:flex;border-radius:99px;overflow:hidden;margin:14px 0}.tricolor i{flex:1}.tricolor i:nth-child(1){background:var(--saffron)}.tricolor i:nth-child(2){background:#fff;border:1px solid #eee}.tricolor i:nth-child(3){background:var(--green)}
+.card{background:#fff;border:1px solid #e5eaf1;border-radius:22px;box-shadow:0 10px 28px #10213b0d;padding:26px}
+.hero{text-align:center;margin-top:18px}
+.hero h1{margin:4px 0;font-size:clamp(30px,6vw,58px);line-height:1;font-weight:950;color:var(--navy)}
+.hero h1 span{color:var(--saffron)}
+.hero p{font-weight:700;color:var(--muted)}
+.badges{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:18px 0}
+.badge{padding:8px 12px;border-radius:999px;background:#eef4fb;font-weight:800;font-size:13px}
+.badge.orange{background:#fff0e3;color:#bd5700}.badge.green{background:#e9f8ef;color:#087437}
+.instructions{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
+.info{padding:15px;border-radius:16px;background:#f8fafc;border:1px solid #edf1f5}.info strong{display:block;color:var(--navy);margin-bottom:4px}.info span{font-size:13px;color:var(--muted)}
+.field{margin:10px 0}.field label{display:block;font-weight:800;margin-bottom:7px}.field input{width:100%;padding:13px 14px;border:1px solid #d7dee8;border-radius:12px;outline:0}.field input:focus{border-color:var(--saffron);box-shadow:0 0 0 3px #ff7a0020}
+.primary{border:0;border-radius:13px;padding:14px 20px;background:linear-gradient(90deg,var(--saffron),#f25c00);color:#fff;font-weight:900;cursor:pointer;box-shadow:0 8px 18px #ff7a0030}.primary:disabled{opacity:.5;cursor:not-allowed}
+.quiztop{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}.timer{font-weight:950;font-size:22px;color:var(--navy);background:#fff4e9;border:1px solid #ffd4ad;padding:10px 14px;border-radius:13px}.timer.danger{color:var(--red);animation:pulse 1s infinite}
+@keyframes pulse{50%{transform:scale(1.04)}}
+.progress{height:10px;background:#e9eef5;border-radius:99px;overflow:hidden;margin:12px 0 22px}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--saffron),#fff,var(--green));width:0;transition:.25s}
+.qmeta{color:var(--muted);font-weight:800;font-size:14px}.question{font-size:clamp(21px,3vw,29px);font-weight:900;line-height:1.3;margin:12px 0 18px}.hi{display:block;color:#334155;font-size:.76em;margin-top:7px;font-weight:700}
+.options{display:grid;gap:12px}.option{width:100%;text-align:left;border:2px solid #e1e7ef;background:#fff;border-radius:15px;padding:15px;cursor:pointer;display:flex;gap:12px;align-items:flex-start;transition:.15s}.option:hover{border-color:#ffad70;background:#fffaf5}.option.selected{border-color:var(--navy);background:#eef5ff}.letter{width:32px;height:32px;min-width:32px;border-radius:10px;background:#edf2f7;display:grid;place-items:center;font-weight:900}.option.selected .letter{background:var(--navy);color:#fff}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}.secondary{border:1px solid #ccd5e1;background:#fff;border-radius:13px;padding:12px 18px;font-weight:900;cursor:pointer}.secondary:disabled{opacity:.4;cursor:not-allowed}
+.warn{margin-top:12px;padding:11px 13px;border-radius:12px;background:#fff7ed;color:#9a4a00;font-size:13px;font-weight:700}
+.result{text-align:center}.score{font-size:64px;font-weight:1000;color:var(--navy);line-height:1}.resultgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}.resultbox{background:#f8fafc;border:1px solid #e5eaf1;border-radius:15px;padding:15px}.resultbox b{display:block;font-size:22px;color:var(--navy)}.resultbox span{font-size:12px;color:var(--muted);font-weight:800}
+.certificate{margin:20px auto;padding:28px;border:8px double var(--navy);border-radius:18px;max-width:760px;background:linear-gradient(135deg,#fff,#fffaf4,#f4fff8)}.certificate h2{font-size:32px;margin:5px}.certificate .name{font-size:30px;font-weight:950;color:var(--saffron);margin:16px}.print{margin-top:10px}
+.footer{text-align:center;color:#64748b;font-size:12px;padding:20px}
+.security{position:fixed;inset:0;background:#071d3aee;color:#fff;z-index:1000;display:grid;place-items:center;padding:25px;text-align:center}.security .box{max-width:520px;background:#102f55;border:1px solid #ffffff22;border-radius:20px;padding:28px}.security h2{margin-top:0}
+@media(max-width:760px){.instructions{grid-template-columns:1fr 1fr}.header{padding:14px}.brand b{font-size:20px}.brand small{font-size:11px}.card{padding:18px}.resultgrid{grid-template-columns:1fr}}
+@media(max-width:460px){.instructions{grid-template-columns:1fr}.quiztop{align-items:flex-start;flex-direction:column}.timer{align-self:stretch;text-align:center}}
+@media print{body{background:#fff}.header,.quiztop,.footer,.print{display:none!important}.card{box-shadow:none;border:0}.certificate{display:block!important}}
+</style>
+</head>
+<body oncontextmenu="return false">
+<div id="security" class="security hidden">
+  <div class="box">
+    <h2>⚠️ Quiz Paused</h2>
+    <p id="securityText">Please return to the quiz window to continue.</p>
+    <button class="primary" onclick="resumeQuiz()">Resume Quiz</button>
+  </div>
+</div>
+
+<div class="app">
+<header class="header">
+  <div class="brand"><div class="logo">BH</div><div><b>BuildHub</b><small>Learn • Build • Innovate</small></div></div>
+  <strong>🇮🇳 2026</strong>
+</header>
+<div class="tricolor"><i></i><i></i><i></i></div>
+
+<section id="start" class="card hero">
+  <div class="badges"><span class="badge orange">🇮🇳 Independence Day</span><span class="badge green">20 MCQs • 5 Minutes</span><span class="badge">Hindi + English</span></div>
+  <h1>INDEPENDENCE DAY <span>QUIZ</span></h1>
+  <p>Freedom in Our History • Innovation in Our Future</p>
+  <div class="instructions">
+    <div class="info"><strong>⏱️ 5 Minutes</strong><span>Automatic submission</span></div>
+    <div class="info"><strong>📝 20 Questions</strong><span>Randomized for every attempt</span></div>
+    <div class="info"><strong>🏆 +1 Mark</strong><span>No negative marking</span></div>
+    <div class="info"><strong>🔒 1 Attempt</strong><span>Attempt controls enabled</span></div>
+  </div>
+  <div style="max-width:560px;margin:auto;text-align:left">
+    <div class="field"><label for="participant">Participant Name *</label><input id="participant" maxlength="60" placeholder="Enter your full name" autocomplete="off"></div>
+    <div class="field"><label for="email">Email / ID *</label><input id="email" maxlength="100" placeholder="Enter your email or participant ID" autocomplete="off"></div>
+    <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;font-weight:700;margin:12px 0"><input id="agree" type="checkbox"> I understand that only one attempt is permitted and the quiz may record focus/visibility events for competition integrity.</label>
+    <button id="startBtn" class="primary" style="width:100%" onclick="startQuiz()">🚀 Start Quiz</button>
+    <div class="warn">Security note: browser-only anti-cheating can reduce cheating but cannot make it technically impossible. For a high-stakes competition, connect this front end to a server that validates attempts and scores.</div>
+  </div>
+</section>
+
+<section id="quiz" class="card hidden">
+  <div class="quiztop"><div><div class="qmeta" id="qmeta"></div><div class="qmeta" id="answeredMeta"></div></div><div id="timer" class="timer">05:00</div></div>
+  <div class="progress"><i id="progressBar"></i></div>
+  <div id="question"></div>
+  <div id="options" class="options"></div>
+  <div class="nav"><button id="prevBtn" class="secondary" onclick="prevQ()">← Previous</button><button id="nextBtn" class="primary" onclick="nextQ()">Next →</button></div>
+  <div class="warn">🔒 Integrity controls: randomized questions/options, focus monitoring, tab/visibility detection, copy/paste blocking, timer auto-submit, and one-attempt browser lock.</div>
+</section>
+
+<section id="result" class="card result hidden">
+  <div class="badges"><span class="badge green">🇮🇳 Quiz Completed</span></div>
+  <h1>Congratulations!</h1>
+  <p id="resultName"></p>
+  <div class="score" id="score">0/20</div>
+  <p id="percent"></p>
+  <div class="resultgrid">
+    <div class="resultbox"><b id="correct">0</b><span>Correct</span></div>
+    <div class="resultbox"><b id="wrong">0</b><span>Wrong / Unanswered</span></div>
+    <div class="resultbox"><b id="timeTaken">0:00</b><span>Time Taken</span></div>
+  </div>
+  <div class="certificate">
+    <div>🇮🇳 BUILDHUB 🇮🇳</div>
+    <h2>Certificate of Participation</h2>
+    <div>This is proudly presented to</div>
+    <div class="name" id="certName"></div>
+    <div>for participating in the <b>BuildHub Independence Day Quiz Competition 2026</b>.</div>
+    <p id="certDate"></p>
+  </div>
+  <button class="primary print" onclick="window.print()">🖨️ Print / Save Certificate</button>
+  <p class="warn">For an official winner leaderboard, send the result to your server/database. This demo stores the completed attempt only in this browser.</p>
+</section>
+<div class="footer">BuildHub • Learn • Build • Innovate | Independence Day Quiz Competition 2026</div>
+</div>
+
+<script>
+"use strict";
+
+/* =========================
+   20 BILINGUAL QUESTIONS
+   ========================= */
+const BANK = [
+{q:"Who is known as the Father of the Nation in India?",h:"भारत में 'राष्ट्रपिता' के रूप में किसे जाना जाता है?",o:["Mahatma Gandhi / महात्मा गांधी","Sardar Patel / सरदार पटेल","Subhas Chandra Bose / सुभाष चंद्र बोस","Jawaharlal Nehru / जवाहरलाल नेहरू"],a:0},
+{q:"On which date did India become independent?",h:"भारत कब स्वतंत्र हुआ?",o:["26 January 1950 / 26 जनवरी 1950","15 August 1947 / 15 अगस्त 1947","26 November 1949 / 26 नवंबर 1949","2 October 1947 / 2 अक्टूबर 1947"],a:1},
+{q:"Who gave the slogan 'Jai Hind' popular national recognition during the freedom struggle?",h:"स्वतंत्रता संग्राम में 'जय हिंद' को लोकप्रिय राष्ट्रीय अभिवादन बनाने वाले नेता कौन थे?",o:["Subhas Chandra Bose / सुभाष चंद्र बोस","Bhagat Singh / भगत सिंह","Bal Gangadhar Tilak / बाल गंगाधर तिलक","Lala Lajpat Rai / लाला लाजपत राय"],a:0},
+{q:"The Quit India Movement was launched in which year?",h:"भारत छोड़ो आंदोलन किस वर्ष शुरू हुआ?",o:["1930","1942","1947","1920"],a:1},
+{q:"Who wrote 'Vande Mataram'?",h:"'वंदे मातरम्' किसने लिखा?",o:["Rabindranath Tagore / रवीन्द्रनाथ टैगोर","Bankim Chandra Chattopadhyay / बंकिम चंद्र चट्टोपाध्याय","Sarojini Naidu / सरोजिनी नायडू","Muhammad Iqbal / मुहम्मद इकबाल"],a:1},
+{q:"Who was the first President of independent India?",h:"स्वतंत्र भारत के प्रथम राष्ट्रपति कौन थे?",o:["Dr. Rajendra Prasad / डॉ. राजेंद्र प्रसाद","Dr. S. Radhakrishnan / डॉ. एस. राधाकृष्णन","Jawaharlal Nehru / जवाहरलाल नेहरू","C. Rajagopalachari / सी. राजगोपालाचारी"],a:0},
+{q:"Who was the first Prime Minister of independent India?",h:"स्वतंत्र भारत के प्रथम प्रधानमंत्री कौन थे?",o:["Sardar Patel / सरदार पटेल","Jawaharlal Nehru / जवाहरलाल नेहरू","Rajendra Prasad / राजेंद्र प्रसाद","Lal Bahadur Shastri / लाल बहादुर शास्त्री"],a:1},
+{q:"The Constitution of India was adopted on:",h:"भारत का संविधान कब अंगीकृत किया गया?",o:["15 August 1947","26 January 1950","26 November 1949","15 August 1950"],a:2},
+{q:"Which Article guarantees equality before law?",h:"कानून के समक्ष समानता किस अनुच्छेद में दी गई है?",o:["Article 14 / अनुच्छेद 14","Article 19 / अनुच्छेद 19","Article 21 / अनुच्छेद 21","Article 32 / अनुच्छेद 32"],a:0},
+{q:"Who is the Chairman of the Drafting Committee of the Constituent Assembly?",h:"संविधान सभा की प्रारूप समिति के अध्यक्ष कौन थे?",o:["B. R. Ambedkar / बी. आर. आंबेडकर","Rajendra Prasad / राजेंद्र प्रसाद","B. N. Rau / बी. एन. राव","Sardar Patel / सरदार पटेल"],a:0},
+{q:"What is the national animal of India?",h:"भारत का राष्ट्रीय पशु कौन है?",o:["Lion / सिंह","Tiger / बाघ","Elephant / हाथी","Leopard / तेंदुआ"],a:1},
+{q:"What is the national aquatic animal of India?",h:"भारत का राष्ट्रीय जलीय जीव कौन है?",o:["Blue Whale / ब्लू व्हेल","Ganges River Dolphin / गंगा नदी डॉल्फिन","Crocodile / मगरमच्छ","Olive Ridley Turtle / ऑलिव रिडले कछुआ"],a:1},
+{q:"Which is the largest state of India by area?",h:"क्षेत्रफल की दृष्टि से भारत का सबसे बड़ा राज्य कौन सा है?",o:["Madhya Pradesh / मध्य प्रदेश","Maharashtra / महाराष्ट्र","Rajasthan / राजस्थान","Uttar Pradesh / उत्तर प्रदेश"],a:2},
+{q:"Where is the headquarters of ISRO?",h:"ISRO का मुख्यालय कहाँ है?",o:["New Delhi / नई दिल्ली","Bengaluru / बेंगलुरु","Hyderabad / हैदराबाद","Ahmedabad / अहमदाबाद"],a:1},
+{q:"India's Chandrayaan-3 successfully landed on the Moon in:",h:"भारत का चंद्रयान-3 चंद्रमा पर सफलतापूर्वक कब उतरा?",o:["2021","2022","2023","2024"],a:2},
+{q:"Which organization is primarily responsible for India's defence research and development?",h:"भारत के रक्षा अनुसंधान और विकास के लिए मुख्य संगठन कौन सा है?",o:["DRDO / डीआरडीओ","ISRO / इसरो","CSIR / सीएसआईआर","NITI Aayog / नीति आयोग"],a:0},
+{q:"Which initiative aims to develop India into a developed nation by 2047?",h:"2047 तक भारत को विकसित राष्ट्र बनाने के लक्ष्य से जुड़ा अभियान कौन सा है?",o:["Viksit Bharat @2047 / विकसित भारत @2047","Digital India 2020","Green India 2030","Skill India 2010"],a:0},
+{q:"Which Indian mission focuses on solar observation?",h:"सूर्य के अध्ययन के लिए भारत का कौन सा मिशन है?",o:["Mangalyaan / मंगलयान","Aditya-L1 / आदित्य-L1","Chandrayaan-2 / चंद्रयान-2","Gaganyaan / गगनयान"],a:1},
+{q:"Who designed the original concept of the Indian national flag adopted in 1947?",h:"1947 में अपनाए गए भारतीय राष्ट्रीय ध्वज के मूल डिजाइन से किसका नाम प्रमुख रूप से जुड़ा है?",o:["Pingali Venkayya / पिंगली वेंकैया","Abanindranath Tagore / अबनीन्द्रनाथ टैगोर","Nandalal Bose / नंदलाल बोस","Jamini Roy / जामिनी रॉय"],a:0},
+{q:"What does the Ashoka Chakra on the Indian flag contain?",h:"भारतीय ध्वज के अशोक चक्र में कितनी तीलियाँ हैं?",o:["12","18","24","32"],a:2}
+];
+
+let questions=[], current=0, answers=[], startedAt=0, timerId=null, secondsLeft=300;
+let focusEvents=0, submitted=false;
+const ATTEMPT_KEY="buildhub_independence_quiz_2026_completed_v1";
+
+function $(id){return document.getElementById(id)}
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
+
+function buildQuestions(){
+  questions = shuffle(BANK.map(x=>{
+    const opts=x.o.map((text,i)=>({text,correct:i===x.a}));
+    shuffle(opts);
+    return {...x,o:opts.map(v=>v.text),a:opts.findIndex(v=>v.correct)};
+  }));
+  answers=Array(questions.length).fill(null);
+}
+
+function startQuiz(){
+  if(localStorage.getItem(ATTEMPT_KEY)){alert("This browser already has a completed attempt. Only one attempt is allowed.");return}
+  if(!$("participant").value.trim() || !$("email").value.trim() || !$("agree").checked){alert("Please enter your name, email/ID and accept the integrity statement.");return}
+  buildQuestions(); current=0; secondsLeft=300; startedAt=Date.now(); focusEvents=0; submitted=false;
+  $("start").classList.add("hidden"); $("quiz").classList.remove("hidden"); renderQ(); startTimer();
+  try{document.documentElement.requestFullscreen?.()}catch(e){}
+}
+
+function startTimer(){
+  clearInterval(timerId);
+  timerId=setInterval(()=>{
+    secondsLeft--; updateTimer();
+    if(secondsLeft<=0){clearInterval(timerId);submitQuiz("Time ended")}
+  },1000); updateTimer();
+}
+function updateTimer(){
+  const m=String(Math.floor(secondsLeft/60)).padStart(2,"0"), s=String(secondsLeft%60).padStart(2,"0");
+  $("timer").textContent=`${m}:${s}`; $("timer").classList.toggle("danger",secondsLeft<=60);
+}
+function renderQ(){
+  const q=questions[current];
+  $("qmeta").textContent=`Question ${current+1} of ${questions.length}`;
+  $("answeredMeta").textContent=`Answered: ${answers.filter(x=>x!==null).length}/${questions.length}`;
+  $("progressBar").style.width=((current+1)/questions.length*100)+"%";
+  $("question").innerHTML=`<div class="question">${escapeHTML(q.q)}<span class="hi">${escapeHTML(q.h)}</span></div>`;
+  $("options").innerHTML="";
+  q.o.forEach((text,i)=>{
+    const b=document.createElement("button"); b.className="option"+(answers[current]===i?" selected":"");
+    b.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span><span>${escapeHTML(text)}</span>`;
+    b.onclick=()=>selectAnswer(i); $("options").appendChild(b);
+  });
+  $("prevBtn").disabled=current===0;
+  $("nextBtn").textContent=current===questions.length-1?"Submit Quiz ✓":"Next →";
+}
+function selectAnswer(i){answers[current]=i;renderQ()}
+function nextQ(){
+  if(current<questions.length-1){current++;renderQ()}
+  else{
+    const unanswered=answers.filter(x=>x===null).length;
+    if(unanswered && !confirm(`${unanswered} question(s) are unanswered. Submit anyway?`))return;
+    submitQuiz("Manual submit");
+  }
+}
+function prevQ(){if(current>0){current--;renderQ()}}
+
+function submitQuiz(reason){
+  if(submitted)return; submitted=true; clearInterval(timerId);
+  const correct=answers.reduce((n,a,i)=>n+(a===questions[i].a?1:0),0);
+  const elapsed=Math.min(300,Math.max(0,Math.round((Date.now()-startedAt)/1000)));
+  localStorage.setItem(ATTEMPT_KEY,JSON.stringify({name:$("participant").value.trim(),email:$("email").value.trim(),score:correct,time:elapsed,focusEvents,submittedAt:new Date().toISOString()}));
+  $("quiz").classList.add("hidden"); $("result").classList.remove("hidden");
+  $("resultName").textContent=`Well done, ${$("participant").value.trim()}! ${reason==="Time ended"?"Time expired and the quiz was submitted automatically.":"Your attempt has been submitted."}`;
+  $("score").textContent=`${correct}/${questions.length}`;
+  $("percent").textContent=`Score: ${Math.round(correct/questions.length*100)}%`;
+  $("correct").textContent=correct;
+  $("wrong").textContent=questions.length-correct;
+  $("timeTaken").textContent=formatTime(elapsed);
+  $("certName").textContent=$("participant").value.trim();
+  $("certDate").textContent=`Completed on ${new Date().toLocaleDateString("en-IN",{day:"2-digit",month:"long",year:"numeric"})}`;
+  try{document.exitFullscreen?.()}catch(e){}
+}
+function formatTime(s){return `${Math.floor(s/60)}:${String(s%60).padStart(2,"0")}`}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+
+function pauseForSecurity(message){
+  if(submitted || $("quiz").classList.contains("hidden"))return;
+  focusEvents++;
+  $("securityText").textContent=message;
+  $("security").classList.remove("hidden");
+}
+function resumeQuiz(){$("security").classList.add("hidden");try{document.documentElement.requestFullscreen?.()}catch(e){}}
+
+document.addEventListener("visibilitychange",()=>{
+  if(document.hidden)pauseForSecurity("The quiz was hidden or the tab was changed. Please return to the quiz.");
+});
+window.addEventListener("blur",()=>pauseForSecurity("The quiz window lost focus. Please return to the quiz."));
+document.addEventListener("fullscreenchange",()=>{
+  if(!$("quiz").classList.contains("hidden") && !document.fullscreenElement) pauseForSecurity("Full-screen mode was exited. Please return to full-screen mode.");
+});
+["copy","cut","paste","dragstart"].forEach(ev=>document.addEventListener(ev,e=>e.preventDefault()));
+document.addEventListener("keydown",e=>{
+  const blocked=(e.ctrlKey||e.metaKey)&&["c","v","x","u","s","p"].includes(e.key.toLowerCase());
+  const dev=e.key==="F12" || ((e.ctrlKey||e.metaKey)&&e.shiftKey&&["i","j","c"].includes(e.key.toLowerCase()));
+  if(blocked||dev){e.preventDefault();e.stopPropagation()}
+});
+window.addEventListener("beforeunload",e=>{
+  if(!$("quiz").classList.contains("hidden") && !submitted){e.preventDefault();e.returnValue=""}
+});
+</script>
+</body>
+</html>
